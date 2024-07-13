@@ -399,7 +399,9 @@ input:focus {
     .create-new {
         width: 100%;
     }
-
+ .navbar {
+    margin-top: 16px;
+ }
     /* .loading-bar-container2 {
         width: 100%;
         height: 10px;
