@@ -10,6 +10,8 @@ html {
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +30,41 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#ribbons {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ribbon {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    /* background-color: #1EC677; */
+    opacity: 0;
+    transform-origin: top center;
+    animation: shoot 2s ease-out forwards;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(var(--translateX)) rotate(var(--rotate));
+        opacity: 0;
+    }
+}
+
 .navbar {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }

@@ -5,7 +5,7 @@
 document.querySelector('.login-btn').addEventListener('click', function () {
     const loadingBarContainer = document.querySelector('.loading-bar-container');
     const loadingBar = document.querySelector('.loading-bar');
-
+   
     // Show the loading bar container
     loadingBarContainer.style.display = 'block';
 
@@ -38,27 +38,47 @@ document.querySelector('.login-btn').addEventListener('click', function () {
 
 
 // HANDLE FORM SUBMISSION
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+// document.getElementById('login-form').addEventListener('submit', function(event) {
+//     event.preventDefault();
 
-    const formData = new FormData(this);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
+//     const formData = new FormData(this);
+//     const data = {};
+//     formData.forEach((value, key) => {
+//         data[key] = value;
+//     });
+
+//     fetch('http://your-server-url/send-email', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(result => {
+//         alert('Form submitted successfully!');
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+// });
+
+
+
+// RIBBONS
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: {x: 1, y: 0.9 },
+    });
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: {x: 0, y: 0.9 },
     });
 
-    fetch('http://your-server-url/send-email', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        alert('Form submitted successfully!');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
 });
+
